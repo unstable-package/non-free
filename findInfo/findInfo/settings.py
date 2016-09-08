@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+import django.conf.global_settings as DEFAULT_SETTINGS
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -28,10 +31,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+sys.path.append(os.path.join(PROJECT_ROOT, 'apps'))
 # Application definition
 
 INSTALLED_APPS = (
-    'main',
+    'info',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +56,13 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'findInfo.urls'
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.getcwd() + '/templates/',
+)
 
 TEMPLATES = [
     {

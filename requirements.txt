@@ -6,3 +6,4 @@ uWSGI==2.0.13
 ujson==1.33
 wsgiref==0.1.2
 django-suit==0.2.21
+beautifulsoup4==4.4.0
